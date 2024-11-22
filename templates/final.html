@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Website Home Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Add your styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: rgba(30, 143, 255, 0.404);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-size: x-large;
+            color: white;
+            margin-left: 50px;
+
+            font-style: normal;
+        }
+
+        nav h1 {
+            text-align: center;
+            color: white;
+        }
+
+        .nav-home {
+            margin-left: 900px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+
+        }
+
+        .background-image {
+            background-image: url(background2.jpg);
+            background-size: cover;
+            height: 600px;
+        }
+
+
+        img {
+            height: 200px;
+            width: 200px;
+        }
+.a {
+    display: flex;
+    padding: 100px;
+    margin: 20px;
+}
+.g {
+    margin-left: 250px;
+}
+
+.l{
+    margin-left: 200px;
+}
+
+
+.x {
+    margin-top: -90px;
+}
+
+
+.sd {
+    margin-right: 95px;
+    margin-left: 40px;
+}
+
+
+
+        footer {
+
+
+            margin-top: 100px;
+            background: rgba(30, 143, 255, 0.404);
+            height: auto;
+            width: 98.5vw;
+            margin: 0px;
+            padding-top: 40px;
+            color: #fff;
+            margin-bottom: -50px;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .footer-content h3 {
+            font-size: 2.1rem;
+            font-weight: 500;
+            text-transform: capitalize;
+            line-height: 3rem;
+        }
+
+        .footer-content p {
+            max-width: 500px;
+            margin: 10px auto;
+            line-height: 28px;
+            font-size: 14px;
+            color: white;
+        }
+
+        .footer-div {
+            margin-top: 40px;
+        }
+
+        .socials {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0 3rem 0;
+        }
+
+        .socials li {
+            margin: 0 10px;
+        }
+
+        .socials a {
+            text-decoration: none;
+            color: #fff;
+            border: 1.1px solid white;
+            padding: 5px;
+
+            border-radius: 50%;
+
+        }
+
+        .socials a i {
+            font-size: 1.1rem;
+            width: 20px;
+
+
+            transition: color .4s ease;
+
+        }
+
+        .socials a:hover i {
+            color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div  class="sd">
+        <h1>Insta Shop</h1>
+        </div>
+        <div class="nav-home">
+            <a href="{% url 'indexpage' %}">Home</a>
+
+        </div>
+    </nav>
+    <h1 style="color:red">Your Order Has Been Sucessfully Placed!!!</h1>
+    <div class="a">
+        {% for i in pro %}
+        <div class="f">
+            <img src="{{i.img.url}}" alt="Product 1 Image">
+        </div>
+        <div class="g">
+            <h2 style="color: brown;">Product details</h2>
+            <p>Name : {{i.name}}</p>
+            <p>Discount : {{i.discount}}%</p>
+            <p>Price : {{i.price}}$</p>
+            <p>Delivery Time : {{i.delivery}}</p>
+            {% endfor %}
+        </div>
+        <div class="l">
+        <h3 style="color: brown;">Delivery Details</h3>
+        <p>Name : {{name}}</p>
+        <p>Address : {{address}}</p>
+        <p> PinCode : {{code}}</p>
+        <p>Contact No : {{phn}}</p>
+        <p>Quantity  : {{quantity}}</p>
+        <p>Payment :{{payment}}</p>
+        <p>Total  : {{total}}$</p>
+       
+    </div>
+    </div>
+<h1 class="x">Thank You For Shopping !!!!!</h1>
+
+    <div class="footer-div">
+        <footer>
+            <div class="footer-content">
+                <h3>Insta Shop</h3>
+                <p> Insta Shop is an American multinational retail corporation that operates a chain of hypermarkets,
+                    discount department stores, and grocery stores in the United States, headquartered in Bentonville,
+                    Arkansas</p>
+                <ul class="socials">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

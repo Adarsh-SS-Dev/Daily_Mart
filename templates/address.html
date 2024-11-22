@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Website Home Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Add your styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: rgba(30, 143, 255, 0.404);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-size: x-large;
+            color: white;
+            margin-left: 50px;
+
+            font-style: normal;
+        }
+
+        nav h1 {
+            text-align: center;
+            color: white;
+        }
+
+        .nav-home {
+            margin-left: 900px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+
+        }
+
+        .k {
+            background-color: rgba(30, 143, 255, 0.404);
+            text-align: center;
+            font-style: italic;
+            height: 500px;
+            margin: 50px;
+            padding-top: 100px;
+        }
+
+        .l {
+            padding-left: 200px;
+        }
+
+        .m {
+            background-color: white;
+            font-style: italic;
+            border-radius: 3px;
+            border-color: brown;
+            color: brown;
+            width: 200px;
+            height: 40px;
+        }
+
+        .v {
+            background-color: whitesmoke;
+
+            margin-left: 55px;
+            margin-right: 55px;
+            border-radius: 50px;
+            height: 450px;
+            padding-top: 5px;
+        }
+
+        .kl {
+            padding-top: 50px;
+        }
+
+
+        .sd {
+            margin-right: 95px;
+            margin-left: 40px;
+        }
+
+        footer {
+
+
+            margin-top: 100px;
+            background: rgba(30, 143, 255, 0.404);
+            height: auto;
+            width: 98.5vw;
+            margin: 0px;
+            padding-top: 40px;
+            color: #fff;
+            margin-bottom: -50px;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .footer-content h3 {
+            font-size: 2.1rem;
+            font-weight: 500;
+            text-transform: capitalize;
+            line-height: 3rem;
+        }
+
+        .footer-content p {
+            max-width: 500px;
+            margin: 10px auto;
+            line-height: 28px;
+            font-size: 14px;
+            color: white;
+        }
+
+        .footer-div {
+            margin-top: 40px;
+        }
+
+        .socials {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0 3rem 0;
+        }
+
+        .socials li {
+            margin: 0 10px;
+        }
+
+        .socials a {
+            text-decoration: none;
+            color: #fff;
+            border: 1.1px solid white;
+            padding: 5px;
+
+            border-radius: 50%;
+
+        }
+
+        .socials a i {
+            font-size: 1.1rem;
+            width: 20px;
+
+
+            transition: color .4s ease;
+
+        }
+
+        .socials a:hover i {
+            color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="sd">
+            <h1>Insta Shop</h1>
+        </div>
+        <div class="nav-home">
+            <a href="{% url 'indexpage' %}">Home</a>
+
+        </div>
+    </nav>
+
+    <h1>Enter Your Details</h1>
+    <div class="k">
+        {% for i in pro %}
+        <form action="{% url 'finalpage' %}?id={{i.id}}" method="post" class="v">
+            {% csrf_token %}
+            <div class="kl">
+
+                <p>Enter Your Name : <input type="text" name="name" required></p>
+                <p class="l">Enter Your Address : <textarea rows="5" cols="50" name="address" required></textarea></p>
+                <p>Enter Your Phone No : <input type="text" name="number" required></p>
+
+                <p>Enter Your Pincode : <input type="text" name="code" required></p>
+
+                <p hidden>Enter Your Quantity :</p> <input name="quantity" value="{{quantity}}" hidden>
+
+                <label>Choose a Payment Method :</label>
+
+                <select name="Payment" id="cars">
+                    <option value="Cash On Delivery">Cash On Delivery</option>
+                    <option value="UPI Payment">Online Payment</option>
+
+                </select><br><br>
+
+                <button type="submit" class="m">Place Order</button>
+            </div>
+        </form>
+        {% endfor %}
+    </div>
+
+
+    <div class="footer-div">
+        <footer>
+            <div class="footer-content">
+                <h3>Insta Shop</h3>
+                <p> Insta Shop is an American multinational retail corporation that operates a chain of hypermarkets,
+                    discount department stores, and grocery stores in the United States, headquartered in Bentonville,
+                    Arkansas</p>
+                <ul class="socials">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
